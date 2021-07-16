@@ -21,6 +21,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.caijia.controller.IndexController;
+import com.caijia.controller.CacheController;
+import com.caijia.controller.UploadController;
 import com.caijia.controller.UserController;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,7 +39,11 @@ public class DispatcherServlet extends HttpServlet {
 	private Map<String, PostDispatcher> postMappings = new HashMap<>();
 
 	// TODO: 可指定package并自动扫描:
-	private List<Class<?>> controllers = List.of(IndexController.class, UserController.class);
+	private List<Class<?>> controllers = List.of(
+			IndexController.class, 
+			UserController.class,
+			UploadController.class,
+			CacheController.class);
 
 	private ViewEngine viewEngine;
 

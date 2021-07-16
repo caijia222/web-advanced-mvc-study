@@ -16,7 +16,10 @@ public class LogFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("LogFilter:process " + ((HttpServletRequest)request).getRequestURI());
+		HttpServletRequest req = (HttpServletRequest) request;
+		System.out.println("LogFilter:process " + req.getRequestURI());
+		System.out.println("LogFilter:process " + req.getRemoteAddr());
+		System.out.println("LogFilter:process " + req.getRemotePort());
 		chain.doFilter(request, response);
 	}
 

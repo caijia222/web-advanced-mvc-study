@@ -22,7 +22,7 @@ public class AuthFilter implements Filter{
 		HttpServletResponse resp = (HttpServletResponse) response;
 		if(req.getSession().getAttribute("user") == null) {
 			System.out.println("Auth Filter: not signin!");
-			resp.sendRedirect("/");
+			resp.sendRedirect("/signin");
 		}else {
 			chain.doFilter(request, response);
 		}
